@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 
 # Follow the tasks below to practice basic Python concepts.
 # Write your code in between the dashed lines.
@@ -13,8 +13,8 @@ import numpy
 # Your code here:
 # -----------------------------------------------
 
-def step
-
+def step(num):
+    return 1 if num > 0 else -1
 
 # -----------------------------------------------
 
@@ -28,8 +28,11 @@ def step
 
 # Your code here:
 # -----------------------------------------------
-def ReLu
 
+def ReLU(arr, cutoff = 0):
+    below_cutoff = arr < cutoff
+    arr[below_cutoff] = cutoff
+    return arr
 
 # -----------------------------------------------
 
@@ -44,7 +47,9 @@ def ReLu
 # Your code here:
 # -----------------------------------------------
 
-def neural_net_layer
-
+def neural_net_layer(twoD_arr, oneD_arr, cutoff = 0):
+    mult_arr = np.dot(twoD_arr, oneD_arr)
+    relu_arr = ReLU(mult_arr, cutoff = cutoff)
+    return relu_arr
 
 # ------------------------------------------
